@@ -77,6 +77,22 @@ label{
   }
   function timeFun() {
     var t = document.getElementById("clock-in").value;
+    console.log(t);
+    var time = t.split(':');
+    let now = new Date();
+
+    const date= new Date(now.getFullYear(), now.getMonth(), now.getDate(), ...time);
+    date.setHours(date.getHours()+9)
+    
+    if(t == ''){
+      document.getElementById("clock-out").style.display = 'block';
+      document.getElementById("clock-out").innerHTML = 'Enter Valid Time';
+    }else{
+       document.getElementById("clock-out").style.display = 'block';
+       document.getElementById("clock-out").innerHTML = 'Your Clock-Out Time is:<b> '+date.getHours()+":"+date.getMinutes()+'</b>';
+  
+    }
+    /* var t = document.getElementById("clock-in").value;
     if(t == ''){
       document.getElementById("clock-out").style.display = 'block';
       document.getElementById("clock-out").innerHTML = 'Enter Valid Time';
@@ -94,7 +110,7 @@ label{
       }
       document.getElementById("clock-out").style.display = 'block';
       document.getElementById("clock-out").innerHTML = 'Your Clock-Out Time is:<b> '+hours+":"+minutes+'</b>';
-     }
+     } */
   }
 </script>
 </body>
